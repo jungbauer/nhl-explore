@@ -53,7 +53,7 @@
                 <span th:text="${team.getTeamAbbrev()}">Abbrev</span><br/>
             </div>
             <div th:text="${team.getTeamCommonName()}">Common Name</div>
-            <div><a th:href="'/rest/club-schedule?team=' + ${team.getTeamAbbrev()} + '&season=20252026'">Schedule</a></div>
+            <div><a th:href="'/schedule?team=' + ${team.getTeamAbbrev()} + '&season=20252026'">Schedule</a></div>
         </div>
     </div>
 </div>

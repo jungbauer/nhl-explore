@@ -1,10 +1,12 @@
 package com.jungbauer.nhl.controller;
 
+import com.jungbauer.nhl.apidata.ClubSeasonSchedule;
 import com.jungbauer.nhl.dto.DtoTeam;
 import com.jungbauer.nhl.service.NhlApiService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -29,5 +31,14 @@ public class IndexController {
         model.addAttribute("teams", teams);
 
         return "teams";
+    }
+
+    @GetMapping("/schedule")
+    public String schedule(Model model, @RequestParam(name = "team") String teamCode, @RequestParam(name = "season") String season) {
+        List<ClubSeasonSchedule.Game> games = nhlApiService.getClubSeasonSchedule(teamCode, season).getGames();
+
+        model.addAttribute("games", games);
+
+        return "schedule";
     }
 }

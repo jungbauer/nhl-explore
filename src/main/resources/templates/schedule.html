@@ -12,6 +12,11 @@
             align-items: center;
             gap: 1em;
         }
+        .matchup {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
         .team {
             display: flex;
             align-items: center;
@@ -26,28 +31,30 @@
             height: 40px;
             object-fit: contain;
         }
+        .game-meta {
+            color: #666;
+            font-size: 0.7em;
+        }
     </style>
 </head>
 <body>
 <h1>Club Season Schedule</h1>
 <div th:each="game : ${games}" class="game-card">
-    <div>
-        <div><strong th:text="${game.gameDate}">2025-10-08</strong></div>
-        <div>
-                <span class="team">
-                    <img th:src="${game.homeTeam.logo}" alt="Home Logo" class="logo"/>
-                    <span th:text="${game.homeTeam.commonName['default']} ?: 'Home'">Home</span>
-                </span>
-            <span class="vs">vs</span>
-            <span class="team">
-                    <img th:src="${game.awayTeam.logo}" alt="Away Logo" class="logo"/>
-                    <span th:text="${game.awayTeam.commonName['default']} ?: 'Away'">Away</span>
-                </span>
+    <div><strong th:text="${game.gameDate}">2025-10-08</strong></div>
+    <div class="matchup">
+        <div class="team">
+            <img th:src="${game.homeTeam.logo}" alt="Home Logo" class="logo"/>
+            <span th:text="${game.homeTeam.commonName['default']} ?: 'Home'">Home</span>
         </div>
-        <div>
-            <span>Type: <span th:text="${game.gameType}">2</span></span> |
-            <span>Status: <span th:text="${game.gameState}">FUT</span></span>
+        <div class="vs">vs</div>
+        <div class="team">
+            <img th:src="${game.awayTeam.logo}" alt="Away Logo" class="logo"/>
+            <span th:text="${game.awayTeam.commonName['default']} ?: 'Away'">Away</span>
         </div>
+    </div>
+    <div class="game-meta">
+        <span>Type: <span th:text="${game.gameType}">2</span></span> |
+        <span>Status: <span th:text="${game.gameState}">FUT</span></span>
     </div>
 </div>
 </body>
