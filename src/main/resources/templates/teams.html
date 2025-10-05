@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>NHL Teams</title>
+    <style>
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px;
+        }
+        .team-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .team-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        .team-info {
+            flex: 1;
+        }
+        .team-name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .team-meta {
+            color: #666;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+<h1>NHL Teams</h1>
+<div class="teams-grid">
+    <div class="team-card" th:each="team : ${teams}">
+        <img class="team-logo" th:src="${team.getTeamLogo()}" th:alt="${team.getTeamName()} + ' Logo'"/>
+        <div class="team-info">
+            <div class="team-name" th:text="${team.getTeamName()}">Team Name</div>
+            <div class="team-meta">
+                <span th:text="${team.getConferenceName()}">Conference</span> |
+                <span th:text="${team.getDivisionName()}">Division</span><br/>
+                <span th:text="${team.getPlaceName()}">Place</span> |
+                <span th:text="${team.getTeamAbbrev()}">Abbrev</span><br/>
+                <span><a th:href="'/rest/club-schedule?team=' + ${team.getTeamAbbrev()} + '&season=20252026'">Schedule</a></span>
+            </div>
+            <div th:text="${team.getTeamCommonName()}">Common Name</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
