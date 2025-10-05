@@ -1,4 +1,4 @@
-package com.jungbauer.nhl.controller;
+package com.jungbauer.nhl.dto;
 
 import lombok.Getter;
 import lombok.Setter;

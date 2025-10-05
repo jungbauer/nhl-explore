@@ -3,6 +3,7 @@ package com.jungbauer.nhl.controller;
 import com.jungbauer.nhl.apidata.ClubSeasonSchedule;
 import com.jungbauer.nhl.apidata.Standings;
 import com.jungbauer.nhl.apidata.Team;
+import com.jungbauer.nhl.dto.DtoTeam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
