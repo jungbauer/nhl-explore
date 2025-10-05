@@ -1,4 +1,4 @@
-package com.jungbauer.nhl.controller;
+package com.jungbauer.nhl.apidata;
 
 import lombok.Data;
 import java.util.List;

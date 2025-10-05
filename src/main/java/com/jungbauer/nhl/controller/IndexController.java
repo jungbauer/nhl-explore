@@ -1,5 +1,7 @@
 package com.jungbauer.nhl.controller;
 
+import com.jungbauer.nhl.apidata.Standings;
+import com.jungbauer.nhl.apidata.Team;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
