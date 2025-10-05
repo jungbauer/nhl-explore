@@ -96,14 +96,14 @@ public class Team {
         public void setDefault(String _default) { this._default = _default; }
     }
 
+    @Getter
+    @Setter
     public static class TeamName {
         private String _default;
         private String fr;
 
         public String getDefault() { return _default; }
         public void setDefault(String _default) { this._default = _default; }
-        public String getFr() { return fr; }
-        public void setFr(String fr) { this.fr = fr; }
     }
 
     public static class TeamCommonName {
@@ -119,6 +119,4 @@ public class Team {
         public String getDefault() { return _default; }
         public void setDefault(String _default) { this._default = _default; }
     }
-
-    // Getters and setters for all fields (omitted for brevity)
 }
