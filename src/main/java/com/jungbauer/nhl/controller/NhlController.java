@@ -1,6 +1,8 @@
 package com.jungbauer.nhl.controller;
 
 import com.jungbauer.nhl.apidata.ClubSeasonSchedule;
+import com.jungbauer.nhl.apidata.GameCenterLanding;
+import com.jungbauer.nhl.apidata.GameCenterPlayByPlay;
 import com.jungbauer.nhl.apidata.Standings;
 import com.jungbauer.nhl.dto.DtoTeam;
 import com.jungbauer.nhl.service.NhlApiService;
@@ -36,5 +38,14 @@ public class NhlController {
         return nhlApiService.getClubSeasonSchedule(teamCode, season);
     }
 
+    @GetMapping("/gamecenter-landing")
+    public GameCenterLanding gamecenterLanding(@RequestParam(name = "gameId") String gameId) {
+        return nhlApiService.getGameCenterLanding(gameId);
+    }
+
+    @GetMapping("/gamecenter-playbyplay")
+    public GameCenterPlayByPlay gamecenterPlayByPlay(@RequestParam(name = "gameId") String gameId) {
+        return nhlApiService.getGameCenterPlayByPlay(gameId);
+    }
 
 }

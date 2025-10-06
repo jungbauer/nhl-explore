@@ -1,8 +1,6 @@
 package com.jungbauer.nhl.service;
 
-import com.jungbauer.nhl.apidata.ClubSeasonSchedule;
-import com.jungbauer.nhl.apidata.Standings;
-import com.jungbauer.nhl.apidata.Team;
+import com.jungbauer.nhl.apidata.*;
 import com.jungbauer.nhl.dto.DtoTeam;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
@@ -48,5 +46,13 @@ public class NhlApiService {
             teams.add(dtoTeam);
         }
         return teams;
+    }
+
+    public GameCenterLanding getGameCenterLanding(String gameId) {
+        return restClient.get().uri("/gamecenter/{gameId}/landing", gameId).retrieve().body(GameCenterLanding.class);
+    }
+
+    public GameCenterPlayByPlay getGameCenterPlayByPlay(String gameId) {
+        return restClient.get().uri("/gamecenter/{gameId}/play-by-play", gameId).retrieve().body(GameCenterPlayByPlay.class);
     }
 }
