@@ -21,6 +21,7 @@ public class Team {
     @Setter(AccessLevel.PROTECTED)
     private Integer id;
 
+    private Integer nhlId;
     private String teamName;
     private String commonName;
     private String placeName;
