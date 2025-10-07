@@ -1,0 +1,13 @@
+name: nhlexplore
+
+services:
+  postgres:
+    image: 'postgres:17-alpine'
+    container_name: 'nhlexplore-db'
+    environment:
+      - 'POSTGRES_PASSWORD=superusersecret'
+    ports:
+      - '5432:5432'
+    volumes:
+      - './dbData:/var/lib/postgresql/data'
+      - './dbScripts:/home'
