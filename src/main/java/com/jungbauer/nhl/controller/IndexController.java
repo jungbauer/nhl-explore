@@ -42,7 +42,23 @@ public class IndexController {
     public String schedule(Model model, @RequestParam(name = "team") String teamCode, @RequestParam(name = "season") String season) {
         List<ClubSeasonSchedule.Game> games = nhlApiService.getClubSeasonSchedule(teamCode, season).getGames();
 
+        List<ClubSeasonSchedule.Game> preSeason = new ArrayList<>();
+        List<ClubSeasonSchedule.Game> regSeason = new ArrayList<>();
+
+        for (ClubSeasonSchedule.Game game : games) {
+            if (game.getGameType() == 1) {
+                preSeason.add(game);
+            }  else if (game.getGameType() == 2) {
+                regSeason.add(game);
+            }
+        }
+
         model.addAttribute("games", games);
+        model.addAttribute("preSeason", preSeason);
+        model.addAttribute("regSeason", regSeason);
+
+        //todo remove need for games list
+        //todo display focus team on top of the page
 
         return "schedule";
     }
