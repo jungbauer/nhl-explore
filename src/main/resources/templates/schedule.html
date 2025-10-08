@@ -35,6 +35,15 @@
             color: #666;
             font-size: 0.7em;
         }
+        .score-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .score {
+            font-weight: bold;
+            font-size: larger;
+        }
     </style>
 </head>
 <body>
@@ -42,14 +51,24 @@
 <div th:each="game : ${games}" class="game-card">
     <div><strong th:text="${game.gameDate}">2025-10-08</strong></div>
     <div class="matchup">
-        <div class="team">
-            <img th:src="${game.homeTeam.logo}" alt="Home Logo" class="logo"/>
-            <span th:text="${game.homeTeam.commonName['default']} ?: 'Home'">Home</span>
+        <div class="score-card">
+            <div class="team">
+                <img th:src="${game.homeTeam.logo}" alt="Home Logo" class="logo"/>
+                <span th:text="${game.homeTeam.commonName['default']} ?: 'Home'">Home</span>
+            </div>
+            <div class="score">
+                <span th:text="${game.homeTeam.score}">score</span>
+            </div>
         </div>
         <div class="vs">vs</div>
-        <div class="team">
-            <img th:src="${game.awayTeam.logo}" alt="Away Logo" class="logo"/>
-            <span th:text="${game.awayTeam.commonName['default']} ?: 'Away'">Away</span>
+        <div class="score-card">
+            <div class="team">
+                <img th:src="${game.awayTeam.logo}" alt="Away Logo" class="logo"/>
+                <span th:text="${game.awayTeam.commonName['default']} ?: 'Away'">Away</span>
+            </div>
+            <div class="score">
+                <span th:text="${game.awayTeam.score}">score</span>
+            </div>
         </div>
     </div>
     <div class="game-meta">
