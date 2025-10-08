@@ -48,4 +48,14 @@ public class NhlController {
         return nhlApiService.getGameCenterPlayByPlay(gameId);
     }
 
+//    @GetMapping("/populateteams")
+//    public String populateteams() {
+//        return nhlApiService.populateTeamTable();
+//    }
+//
+//    @GetMapping("/updateconfdiv")
+//    public String updateconfdiv() {
+//        return nhlApiService.updateconfdiv();
+//    }
+
 }
