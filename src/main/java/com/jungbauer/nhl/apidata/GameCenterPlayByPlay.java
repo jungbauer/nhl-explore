@@ -31,7 +31,7 @@ public class GameCenterPlayByPlay {
     private List<Play> plays;
     private List<RosterSpot> rosterSpots;
     private int regPeriods;
-    private Map<String, Object> summary; // summary is an empty object in this sample
+    private Map<String, Object> summary;
 
     @Data
     public static class Venue {
