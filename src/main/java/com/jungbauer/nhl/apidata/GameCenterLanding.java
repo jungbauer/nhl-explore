@@ -70,7 +70,7 @@ public class GameCenterLanding {
     @Data
     public static class Summary {
         private List<ScoringPeriod> scoring;
-        private List<Object> shootout; //todo: this is going to break if the game has a shootout
+        private List<ShootoutAttempt> shootout;
         private List<Star> threeStars;
         private List<PenaltyPeriod> penalties;
     }
@@ -94,10 +94,10 @@ public class GameCenterLanding {
         private String headshot;
         private String highlightClipSharingUrl;
         private String highlightClipSharingUrlFr;
-        private long highlightClip;
-        private long highlightClipFr;
-        private long discreteClip;
-        private long discreteClipFr;
+        private Long highlightClip;
+        private Long highlightClipFr;
+        private Long discreteClip;
+        private Long discreteClipFr;
         private int goalsToDate;
         private int awayScore;
         private int homeScore;
@@ -108,7 +108,7 @@ public class GameCenterLanding {
         private List<Assist> assists;
         private String pptReplayUrl;
         private String homeTeamDefendingSide;
-        private boolean isHome;
+        private Boolean isHome;
     }
 
     @Data
@@ -119,6 +119,19 @@ public class GameCenterLanding {
         private Map<String, String> name;
         private int assistsToDate;
         private int sweaterNumber;
+    }
+
+    @Data
+    public static class ShootoutAttempt {
+        private int sequence;
+        private long playerId;
+        private Map<String, String> teamAbbrev;
+        private Map<String, String> firstName;
+        private Map<String, String> lastName;
+        private String shotType;
+        private String result;
+        private String headshot;
+        private boolean gameWinner;
     }
 
     @Data
